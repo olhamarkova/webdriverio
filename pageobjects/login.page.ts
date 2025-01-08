@@ -4,6 +4,7 @@ export class LoginPage extends Page {
   constructor() {
     super();
   }
+
   get inputUsername() {
     return $("#username");
   }

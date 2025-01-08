@@ -8,4 +8,8 @@ export class SecurePage extends Page {
   get flashAlert() {
     return $("#flash");
   }
+
+  async assertTextContaining(text: string): Promise<void> {
+    await super.assertTextContaining(this.flashAlert, text);
+  }
 }
