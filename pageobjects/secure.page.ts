@@ -5,7 +5,7 @@ export class SecurePage extends Page {
     super();
   }
 
-  get flashAlert() {
+  get flashAlert(): ChainablePromiseElement {
     return $("#flash");
   }
 

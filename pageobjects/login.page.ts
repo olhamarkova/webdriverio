@@ -5,19 +5,19 @@ export class LoginPage extends Page {
     super();
   }
 
-  get inputUsername() {
+  get inputUsername(): ChainablePromiseElement {
     return $("#username");
   }
 
-  get inputPassword() {
+  get inputPassword(): ChainablePromiseElement {
     return $("#password");
   }
 
-  get btnSubmit() {
+  get btnSubmit(): ChainablePromiseElement {
     return $('button[type="submit"]');
   }
 
-  async login(username: string, password: string) {
+  async login(username: string, password: string): Promise<void> {
     await this.inputUsername.setValue(username);
     await this.inputPassword.setValue(password);
     await this.btnSubmit.click();
@@ -26,7 +26,7 @@ export class LoginPage extends Page {
   /**
    * overwrite specific options to adapt it to page object
    */
-  open() {
+  open(): Promise<void | WebdriverIO.Request> {
     return super.open("login");
   }
 }
