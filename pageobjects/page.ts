@@ -9,6 +9,13 @@ export class Page {
     return browser.url(`/${path}`);
   }
 
+  async waitForEnabled(
+    element: ChainablePromiseElement,
+    timeout?: number
+  ): Promise<void> {
+    await element.waitForEnabled({ timeout: timeout });
+  }
+
   async assertUrlContaining(path: string): Promise<void> {
     await expect(browser).toHaveUrl(expect.stringContaining(path));
   }
@@ -28,5 +35,22 @@ export class Page {
 
   async assertExisting(element: ChainablePromiseElement): Promise<void> {
     await expect(element).toBeExisting();
+  }
+
+  async assertDisabled(element: ChainablePromiseElement): Promise<void> {
+    await expect(element).toBeDisabled();
+  }
+
+  async assertEnabled(element: ChainablePromiseElement): Promise<void> {
+    await expect(element).toBeEnabled();
+  }
+
+  async assertAttributeContaining(
+    element: ChainablePromiseElement,
+    attribute: { name: string; value: string }
+  ) {
+    await expect(element).toHaveAttribute(attribute.name, attribute.value, {
+      containing: true,
+    });
   }
 }
