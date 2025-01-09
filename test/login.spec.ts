@@ -15,4 +15,14 @@ describe("Login tests", () => {
     await app.secure.assertUrlContaining("secure");
     await app.secure.assertTextContaining("You logged into a secure area!");
   });
+
+  it.only("should throw an error for invalid credentials", async () => {
+    await app.login.open();
+    await app.login.assertUrlContaining("login");
+
+    await app.login.login("foo", password);
+    await app.login.assertUrlContaining("login");
+    await app.secure.assertExisting(app.secure.flashAlert);
+    await app.secure.assertTextContaining("Your username is invalid!");
+  });
 });
