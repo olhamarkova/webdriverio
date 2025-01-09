@@ -1,4 +1,4 @@
-import { Page } from "./page";
+import { Page } from "../core/page";
 
 export class DynamicControlsPage extends Page {
   constructor() {
