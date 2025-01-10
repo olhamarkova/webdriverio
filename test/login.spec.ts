@@ -5,9 +5,12 @@ const userName = `${process.env.LOGIN}`;
 const password = `${process.env.PASSWORD}`;
 
 describe("Login tests", () => {
-  it("should login with valid credentials", async () => {
+  beforeEach(async () => {
     await app.login.open();
     await app.login.assertUrlContaining("login");
+  });
+
+  it("should login with valid credentials", async () => {
     await app.login.assertHaveTitle("The Internet");
 
     await app.login.login(userName, password);
@@ -17,9 +20,6 @@ describe("Login tests", () => {
   });
 
   it("should throw an error for invalid credentials", async () => {
-    await app.login.open();
-    await app.login.assertUrlContaining("login");
-
     await app.login.login("foo", password);
     await app.login.assertUrlContaining("login");
     await app.secure.assertExisting(app.secure.flashAlert);
