@@ -30,7 +30,7 @@ export class DynamicControlsPage extends Page {
     await super.assertHasText(this.dynamicButton, text);
   }
 
-  async waitButtonChangesTo(text: DynamicButtonText) {
+  async waitButtonChangesTo(text: DynamicButtonText): Promise<void> {
     await browser.waitUntil(
       async () => {
         const buttonText = await this.dynamicButton.getText();
