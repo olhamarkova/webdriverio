@@ -16,6 +16,10 @@ export class Page {
     await element.waitForEnabled({ timeout: timeout });
   }
 
+  async waitFor(element: ChainablePromiseElement) {
+    await element.waitForDisplayed();
+  }
+
   async assertUrlContaining(path: string): Promise<void> {
     await expect(browser).toHaveUrl(expect.stringContaining(path));
   }

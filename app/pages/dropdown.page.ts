@@ -15,12 +15,10 @@ export class DropdownPage extends Page {
   }
 
   async openDropdownMenu(): Promise<void> {
-    await this.dropdownMenu.waitForDisplayed();
     await this.dropdownMenu.click();
   }
 
   async selectOption(value: Options): Promise<void> {
-    await this.dropdownMenuOption(value).waitForDisplayed();
     await this.dropdownMenuOption(value).click();
   }
 

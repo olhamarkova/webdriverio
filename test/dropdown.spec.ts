@@ -8,6 +8,7 @@ describe("Dropdown tests", () => {
     await app.dropdown.open();
     await app.dropdown.assertUrlContaining("dropdown");
 
+    await app.dropdown.waitFor(app.dropdown.dropdownMenu);
     await app.dropdown.openDropdownMenu();
     await app.dropdown.selectOption(Options.Option_1);
     await app.dropdown.assertSelected(Options.Option_1);

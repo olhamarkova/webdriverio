@@ -9,7 +9,7 @@ export const alertText = {
 
 export const result = {
   alert: "You successfully clicked an alert",
-  dismiss: "",
+  dismiss: "You clicked: Cancel",
   prompt: (text: string) => `You entered: ${text}`,
 };
 
@@ -27,7 +27,6 @@ export class AlertsPage extends Page {
   }
 
   async clickAlertButton(event: Alerts): Promise<void> {
-    await this.alertButton(event).waitForDisplayed();
     await this.alertButton(event).click();
   }
 

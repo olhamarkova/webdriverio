@@ -10,6 +10,7 @@ describe("JavaScript alerts tests", () => {
   });
 
   it("should accept an alert", async () => {
+    await app.alerts.waitFor(app.alerts.alertButton("Alert"));
     await app.alerts.clickAlertButton("Alert");
     await app.alerts.assertAlertTextIs(alertText.alert);
     await app.alerts.acceptAlert();
