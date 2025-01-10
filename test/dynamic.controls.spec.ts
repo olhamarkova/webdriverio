@@ -26,8 +26,10 @@ describe("Dynamic elements tests", () => {
 
     await app.addElements.addElement();
     await app.addElements.waitForExists(app.addElements.deleteButton);
+    await app.addElements.assertExisting(app.addElements.deleteButton);
 
     await app.addElements.deleteElement();
     await app.addElements.waitForExists(app.addElements.deleteButton, true);
+    await app.addElements.assertNotExists(app.addElements.deleteButton);
   });
 });

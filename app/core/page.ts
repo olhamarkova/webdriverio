@@ -41,6 +41,10 @@ export class Page {
     await expect(element).toBeExisting();
   }
 
+  async assertNotExists(element: ChainablePromiseElement): Promise<void> {
+    await expect(element).not.toExist();
+  }
+
   async assertDisabled(element: ChainablePromiseElement): Promise<void> {
     await expect(element).toBeDisabled();
   }
