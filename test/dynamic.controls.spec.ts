@@ -19,4 +19,15 @@ describe("Dynamic elements tests", () => {
       enableBtnAttribute
     );
   });
+
+  it("should wait until an element exists", async () => {
+    await app.addElements.open();
+    await app.addElements.waitFor(app.addElements.addElementButton);
+
+    await app.addElements.addElement();
+    await app.addElements.waitForExists(app.addElements.deleteButton);
+
+    await app.addElements.deleteElement();
+    await app.addElements.waitForExists(app.addElements.deleteButton, true);
+  });
 });
