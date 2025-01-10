@@ -14,7 +14,7 @@ describe("Login tests", () => {
     await app.login.assertHaveTitle("The Internet");
 
     await app.login.login(userName, password);
-    await app.secure.assertExisting(app.secure.flashAlert);
+    await app.secure.assertExists(app.secure.flashAlert);
     await app.secure.assertUrlContaining("secure");
     await app.secure.assertTextContaining("You logged into a secure area!");
   });
@@ -22,7 +22,7 @@ describe("Login tests", () => {
   it("should throw an error for invalid credentials", async () => {
     await app.login.login("foo", password);
     await app.login.assertUrlContaining("login");
-    await app.secure.assertExisting(app.secure.flashAlert);
+    await app.secure.assertExists(app.secure.flashAlert);
     await app.secure.assertTextContaining("Your username is invalid!");
   });
 });

@@ -4,3 +4,5 @@ export enum Options {
 }
 
 export type Alerts = "Alert" | "Confirm" | "Prompt";
+
+export type DynamicButtonText = "Add" | "Remove";

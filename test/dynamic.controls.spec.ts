@@ -20,13 +20,23 @@ describe("Dynamic elements tests", () => {
     );
   });
 
+  it("should wait until the button text changes", async () => {
+    await app.dynamic.clickDynamicButton();
+    await app.dynamic.waitButtonChangesTo("Add");
+    await app.dynamic.assertHasText("Add");
+
+    await app.dynamic.clickDynamicButton();
+    await app.dynamic.waitButtonChangesTo("Remove");
+    await app.dynamic.assertHasText("Remove");
+  });
+
   it("should wait until an element exists", async () => {
     await app.addElements.open();
     await app.addElements.waitFor(app.addElements.addElementButton);
 
     await app.addElements.addElement();
     await app.addElements.waitForExists(app.addElements.deleteButton);
-    await app.addElements.assertExisting(app.addElements.deleteButton);
+    await app.addElements.assertExists(app.addElements.deleteButton);
 
     await app.addElements.deleteElement();
     await app.addElements.waitForExists(app.addElements.deleteButton, true);

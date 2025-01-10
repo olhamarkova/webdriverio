@@ -37,7 +37,14 @@ export class Page {
     });
   }
 
-  async assertExisting(element: ChainablePromiseElement): Promise<void> {
+  async assertHasText(
+    element: ChainablePromiseElement,
+    text: string
+  ): Promise<void> {
+    await expect(element).toHaveText(text);
+  }
+
+  async assertExists(element: ChainablePromiseElement): Promise<void> {
     await expect(element).toBeExisting();
   }
 
