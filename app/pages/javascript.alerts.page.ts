@@ -1,4 +1,17 @@
+import { Alerts } from "app/types/types";
 import { Page } from "../core/page";
+
+export const alertText = {
+  alert: "I am a JS Alert",
+  confirm: "I am a JS Confirm",
+  prompt: "I am a JS prompt",
+};
+
+export const result = {
+  alert: "You successfully clicked an alert",
+  dismiss: "",
+  prompt: (text: string) => `You entered: ${text}`,
+};
 
 export class AlertsPage extends Page {
   constructor() {
@@ -9,11 +22,11 @@ export class AlertsPage extends Page {
     return $("#result");
   }
 
-  alertButton(event: "Alert" | "Confirm" | "Prompt"): ChainablePromiseElement {
+  alertButton(event: Alerts): ChainablePromiseElement {
     return $(`ul li button[onclick='js${event}()']`);
   }
 
-  async clickAlertButton(event: "Alert" | "Confirm" | "Prompt"): Promise<void> {
+  async clickAlertButton(event: Alerts): Promise<void> {
     await this.alertButton(event).waitForDisplayed();
     await this.alertButton(event).click();
   }
