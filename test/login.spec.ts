@@ -16,7 +16,7 @@ describe("Login tests", () => {
     await app.secure.assertTextContaining("You logged into a secure area!");
   });
 
-  it.only("should throw an error for invalid credentials", async () => {
+  it("should throw an error for invalid credentials", async () => {
     await app.login.open();
     await app.login.assertUrlContaining("login");
 
