@@ -21,6 +21,7 @@ exports.config = {
   // of the config file unless it's absolute.
   //
   specs: ["./test/**/*.ts"],
+  suite: { smoke: ["./test/smoke/*.ts"] },
   // Patterns to exclude.
   exclude: [
     // 'path/to/excluded/files'
