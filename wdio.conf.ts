@@ -1,3 +1,12 @@
+const ENV = process.env.ENV;
+
+if (!ENV || !["QA", "DEV"].includes(ENV)) {
+  console.log(
+    "Please specify the correct format to run your test scripts: ENV=QA | DEV"
+  );
+  process.exit();
+}
+
 exports.config = {
   //
   // ====================
@@ -85,7 +94,7 @@ exports.config = {
   // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
   // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
   // gets prepended directly.
-  baseUrl: "https://the-internet.herokuapp.com/",
+  baseUrl: ENV === "QA" ? `${process.env.QA}` : `${process.env.DEV}`,
   //
   // Default timeout for all waitFor* commands.
   waitforTimeout: 10000,
