@@ -24,7 +24,7 @@ export class LoginPage extends Page {
   }
 
   /**
-   * overwrite specific options to adapt it to page object
+   * overwrites specific options to adapt it to page object
    */
   open(): Promise<void | WebdriverIO.Request> {
     return super.open("login");

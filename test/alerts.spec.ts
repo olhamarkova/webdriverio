@@ -30,7 +30,7 @@ describe("JavaScript alerts tests", () => {
     await app.alerts.clickAlertButton("Prompt");
     await app.alerts.assertAlertTextIs(alertText.prompt);
 
-    await app.alerts.sendPromptToAlert("This is some text"); //fails - result null
+    await app.alerts.sendPromptToAlert("This is some text");
     await app.alerts.assertResultMsgIs(result.prompt("This is some text"));
   });
 });

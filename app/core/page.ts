@@ -16,7 +16,7 @@ export class Page {
     await element.waitForEnabled({ timeout: timeout });
   }
 
-  async waitFor(element: ChainablePromiseElement) {
+  async waitFor(element: ChainablePromiseElement): Promise<void> {
     await element.waitForDisplayed();
   }
 
@@ -63,7 +63,7 @@ export class Page {
   async assertAttributeContaining(
     element: ChainablePromiseElement,
     attribute: { name: string; value: string }
-  ) {
+  ): Promise<void> {
     await expect(element).toHaveAttribute(attribute.name, attribute.value, {
       containing: true,
     });
